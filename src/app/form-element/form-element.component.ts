@@ -11,11 +11,13 @@ export class FormElementComponent implements OnInit {
 title: string;
 value: string;
 strategy: string;
+formElement: FormElement;
 
   //@Input() formElement: FormElement;
   constructor() { }
 
   ngOnInit() {
+    this.formElement = new FormElement ('text', '', 'element');
     this.title = 'my form';
     this.value = 'my value';
     this.strategy  = 'my strategy';
