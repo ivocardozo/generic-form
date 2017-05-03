@@ -1,10 +1,8 @@
 export class FormElement {
-  type: string;
   key: string;
-  label: string;
-  constructor (type: string, key: string, label: string) {
-    this.type = type;
+  name: string;
+  constructor (key: string, name: string) {
     this.key = key;
-    this.label = label;
+    this.name = name;
   }
 }

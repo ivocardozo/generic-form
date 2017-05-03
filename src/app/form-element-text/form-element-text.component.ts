@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { FormElement } from '../classes/form-element';
+import { FormElementText } from '../classes/form-element-text';
 
 @Component({
   selector: 'app-form-element-text',
@@ -8,7 +9,7 @@ import { FormElement } from '../classes/form-element';
   styleUrls: ['./form-element-text.component.css']
 })
 export class FormElementTextComponent implements OnInit {
-  @Input() formElement: FormElement;
+  @Input() formElement: FormElementText;
 
   constructor() { }
 

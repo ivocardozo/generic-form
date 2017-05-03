@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { FormElement } from '../classes/form-element';
 import { FormObject } from '../classes/form-object';
+import { FormElementText } from '../classes/form-element-text';
 
 @Component({
   selector: 'app-form-container',
@@ -17,13 +18,15 @@ export class FormContainerComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit() {
-    this.formElemen = new FormElement('text', 'name', 'Name');
+    this.formElemen = new FormElementText('text', 'name', 'Name');
     this.formObject = new FormObject('my Form', 'Next');
     this.formObject.formElements.push(this.formElemen);
-    this.formObject.formElements.push(new FormElement('text', 'lastName', 'Last Name'));
-    this.formObject.formElements.push(new FormElement('text', 'address', 'Address'));
+    this.formObject.formElements.push(new FormElementText('text', 'lastName', 'Last Name'));
+    this.formObject.formElements.push(new FormElementText('text', 'address', 'Address'));
     console.log('first object is ', this.formObject);
   }
   ngOnChanges() { }
+
+  readFormJson() { }
 
 }

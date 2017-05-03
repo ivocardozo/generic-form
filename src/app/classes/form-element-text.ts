@@ -1,0 +1,11 @@
+import { FormElement } from '../classes/form-element';
+
+export class FormElementText extends FormElement {
+    label: string;
+    content: string;
+  constructor (key: string, name: string, label = '') {
+    super(key, name);
+    this.label = label;
+    this.content = '';
+  }
+}
