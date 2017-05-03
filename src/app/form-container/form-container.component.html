@@ -1,13 +1,15 @@
 <div class="modal-dialog modal-sm">
   <div class="modal-content">
     <div class="modal-header">
-      <h4 class="modal-title pull-left">Create Retrospective</h4>
+      <h4 class="modal-title pull-left">{{formObject.title}}</h4>
     </div>
       <div class="modal-body">
         <form (ngSubmit)="sendRetrospective()" #retrospectiveForm="ngForm">
-          <app-form-element></app-form-element>
+          <div *ngFor="let formElement of formObject.formElements">            
+            <app-form-element-text *ngIf="formElement.type==='text'" [formElement]="formElement"></app-form-element-text>
+          </div>
           <button type="submit" class="btn btn-success" [disabled]="!retrospectiveForm.form.valid">
-          Submit
+          {{formObject.submit}}
         </button>
       </form>
     </div>

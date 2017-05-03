@@ -6,15 +6,14 @@ import { ModalModule } from 'ngx-bootstrap';
 import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
-
 import { FormContainerComponent } from './form-container/form-container.component';
-import { FormElementComponent } from './form-element/form-element.component';
+import { FormElementTextComponent } from './form-element-text/form-element-text.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormContainerComponent,
-    FormElementComponent
+    FormElementTextComponent
   ],
   imports: [
     BrowserModule,
