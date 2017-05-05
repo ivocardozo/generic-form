@@ -1,7 +1,9 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import { FormElement } from '../classes/form-element';
+import { FormElement } from '../classes/text/form-element';
 import { FormObject } from '../classes/form-object';
-import { FormElementText } from '../classes/form-element-text';
+import { FormElementText } from '../classes/text/form-element-text';
+import { FormElementEmail } from '../classes/text/form-element-email';
+import { FormElementNumber } from '../classes/text/form-element-number';
 
 @Component({
   selector: 'app-form-container',
@@ -23,6 +25,8 @@ export class FormContainerComponent implements OnInit, OnChanges {
     this.formObject.formElements.push(this.formElemen);
     this.formObject.formElements.push(new FormElementText('text', 'lastName', 'Last Name'));
     this.formObject.formElements.push(new FormElementText('text', 'address', 'Address'));
+    this.formObject.formElements.push(new FormElementEmail('text', 'email', 'Email'));
+    this.formObject.formElements.push(new FormElementNumber('text', 'phoneNumber', 'Phone number'));
     console.log('first object is ', this.formObject);
   }
   ngOnChanges() { }

@@ -1,4 +1,4 @@
-import { FormElement } from './form-element';
+import { FormElement } from './text/form-element';
 export class FormObject {
   title: string;
   formElements: FormElement[];

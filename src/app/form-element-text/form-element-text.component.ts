@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { FormElement } from '../classes/form-element';
-import { FormElementText } from '../classes/form-element-text';
+import { FormElement } from '../classes/text/form-element';
+import { FormElementText } from '../classes/text/form-element-text';
 
 @Component({
   selector: 'app-form-element-text',

@@ -1,4 +1,4 @@
-import { FormElement } from '../classes/form-element';
+import { FormElement } from '../text/form-element';
 
 export class FormElementText extends FormElement {
     label: string;
@@ -9,10 +9,7 @@ export class FormElementText extends FormElement {
     super(key, name);
     this.label = label;
     this.content = '';
-    this.regex = '^[0-9]+$';
-    this.required = true;
-  }
-  validator () {
-    return '^\d+$';
+    this.regex = '.';
+    this.required = false;
   }
 }
