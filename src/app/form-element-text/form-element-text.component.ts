@@ -16,5 +16,8 @@ export class FormElementTextComponent implements OnInit {
   ngOnInit() {
 
   }
+  validator() {
+    
+  }
 
 }
