@@ -10,15 +10,23 @@ import { FormElementText } from '../classes/form-element-text';
 })
 export class FormElementTextComponent implements OnInit {
   @Input() formElement: FormElementText;
-  regex: string;
+  regex: RegExp;
 
   constructor() { }
 
   ngOnInit() {
-    this.regex = '^[0-9]+$';
+    this.regex = new RegExp(this.formElement.regex);
   }
-  validator(): string {
-    return '^[0-9]+$';
+  validator(): boolean {
+    return this.regex.test(this.formElement.content);
+  }
+  isRequired(): boolean {
+    if (this.formElement.required && this.formElement.content === '') {
+      return false;
+    }
+    return true;
+
+    }
   }
 
-}
+

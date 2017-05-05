@@ -6,10 +6,13 @@
       id="title" 
       placeholder="strategy" 
       #name = "ngModel"
-      pattern="^[0-9]+$"
-      required>
-    <div [hidden]="name.valid|| name.pristine"
-             class="alert alert-danger">
-          {{formElement.label}} is required
+      pattern="validator()"
+      >
+    <div [hidden]="!name.dirty || validator() "class="alert alert-danger">
+      {{formElement.label}} invalid    
+      <div [hidden]="isRequired() || !name.dirty" class="alert alert-danger">
+      {{formElement.label}} is required
+    </div>
     </div>
 </div>
+ 
