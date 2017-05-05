@@ -6,9 +6,9 @@
       <div class="modal-body">
         <form (ngSubmit)="sendRetrospective()" #retrospectiveForm="ngForm">
           <div *ngFor="let formElement of formObject.formElements">            
-            <app-form-element-text *ngIf="formElement.key==='text'" [formElement]="formElement"></app-form-element-text>
+            <app-form-element-text *ngIf="formElement.key==='text'" (formValid)="validateFormElements()" [formElement]="formElement"></app-form-element-text>
           </div>
-          <button type="submit" class="btn btn-success" [disabled]="!retrospectiveForm.form.valid">
+          <button type="submit" class="btn btn-success" [disabled]="!isValid">
           {{formObject.submit}}
         </button>
       </form>

@@ -6,7 +6,7 @@
       id="title" 
       placeholder="strategy" 
       #name = "ngModel"
-      pattern="validator()"
+      (change)="checkError()"
       >
     <div [hidden]="!name.dirty || validator() "class="alert alert-danger">
       {{formElement.label}} invalid    

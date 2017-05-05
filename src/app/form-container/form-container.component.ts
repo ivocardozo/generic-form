@@ -16,10 +16,12 @@ export class FormContainerComponent implements OnInit, OnChanges {
   title: string;
   value: string;
   strategy: string;
+  isValid: boolean;
 
   constructor() { }
 
   ngOnInit() {
+    this.isValid = false;
     this.formElemen = new FormElementText('text', 'name', 'Name');
     this.formObject = new FormObject('my Form', 'Next');
     this.formObject.formElements.push(this.formElemen);
@@ -32,5 +34,15 @@ export class FormContainerComponent implements OnInit, OnChanges {
   ngOnChanges() { }
 
   readFormJson() { }
+  validateFormElements() {
+    console.log('validating.........');
+      let flags = true;
+      for ( let _i = 0; _i < this.formObject.formElements.length; _i++) {
+          flags = flags && this.formObject.formElements[_i].isValid;
+       //   console.log(flags);
+      }
+      this.isValid = flags;
+    //console.log(this.formObject);
+  }
 
 }

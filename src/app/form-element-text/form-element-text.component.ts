@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { FormElement } from '../classes/text/form-element';
 import { FormElementText } from '../classes/text/form-element-text';
@@ -9,7 +9,11 @@ import { FormElementText } from '../classes/text/form-element-text';
   styleUrls: ['./form-element-text.component.css']
 })
 export class FormElementTextComponent implements OnInit {
+  formElementCorrect = false;
+  formElementHasChanged = false;
   @Input() formElement: FormElementText;
+  @Output() formValid = new EventEmitter<boolean>();
+
   regex: RegExp;
 
   constructor() { }
@@ -25,7 +29,17 @@ export class FormElementTextComponent implements OnInit {
       return false;
     }
     return true;
-
+  }
+  checkError(): void {
+      if ( this.validator() && this.isRequired() ) {
+        console.log('validator is', this.validator(), ' required is ', this.isRequired());
+        this.formElement.isValid = true;
+        this.formValid.emit(true);
+      } else {
+      console.log('validator isdsfsfsdfsdf', this.validator(), ' required is ', this.isRequired());
+      this.formElement.isValid = false;
+      this.formValid.emit(false);
+      }
     }
   }
 
